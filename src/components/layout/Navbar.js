@@ -1,7 +1,11 @@
+// Default Props
+// Prop Types
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export class Navbar extends Component {
+
   // Default props to use if no props are passed in App.js
   static  defaultProps = {
     title: 'Github Finder',

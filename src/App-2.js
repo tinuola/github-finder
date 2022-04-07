@@ -1,9 +1,9 @@
+ // Creating JSX expressions and conditionals
+
 import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-
-  // Creating JSX expressions and conditionals
 
   // Method as part of the class; should be referenced with "this" keyword
   drinks = () => 'Kombucha';
