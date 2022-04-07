@@ -1,7 +1,10 @@
+// Class based components
+
 import React, { Fragment, Component } from 'react';
 import './App.css';
 
 class App extends Component {
+/* Cannot return directly from a class. A method (render - a lifecycle methd that runs at a given point) is needed */
   render(){
     return (
       <Fragment>
