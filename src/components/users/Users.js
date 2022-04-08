@@ -1,7 +1,10 @@
+
+
 import React, { Component } from 'react';
 import UserItem from './UserItem';
 
 class Users extends Component {
+  // Hardcoding users
   state = {
     users:[
       {
@@ -27,11 +30,22 @@ class Users extends Component {
 
   render() {
     return (
-      // Add style
+      // Add styles with a variable object
       <div style={userStyle}>
+
+          {/* Loop through users and create a list */}
+
         {this.state.users.map(user => (
+
+          // <div>{user.login}</div>
+
+          // Add unique key
           // <div key={user.id}>{user.login}</div>
+
+          // Output user item instead of a div
+          // Pass in the entire user as a prop to UserItem
           <UserItem key={user.id} user={user} />
+
         ))}
       </div>
     )
