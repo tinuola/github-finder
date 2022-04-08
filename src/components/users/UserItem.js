@@ -1,3 +1,5 @@
+// User item that can be used for multiple users
+
 import React, { Component } from 'react';
 
 class UserItem extends Component {
