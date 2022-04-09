@@ -1,11 +1,16 @@
-// User item that can be used for multiple users
+// Turning class-based component to functional component
 
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class UserItem extends Component {
+// Destructing user
+const UserItem = ({user: {login, avatar_url, html_url}}) => {
+// const UserItem = (props) => {
 
-  render() {
-    const { login, avatar_url, html_url } = this.props.user;
+    // Remove render method
+    // Remove this keyword since this is no longer a class component
+
+    // const { login, avatar_url, html_url } = props.user;
 
     return (
       <div className='card text-center'>
@@ -21,7 +26,12 @@ class UserItem extends Component {
         </div>
       </div>
     )
-  }
+
 }
 
 export default UserItem
+
+// Type-checking of props
+UserItem.propTypes = {
+  user: PropTypes.object.isRequired,
+}
