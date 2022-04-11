@@ -29,9 +29,9 @@ const UserItem = ({user: {login, avatar_url, html_url}}) => {
 
 }
 
-export default UserItem
-
 // Type-checking of props
 UserItem.propTypes = {
   user: PropTypes.object.isRequired,
 }
+
+export default UserItem
