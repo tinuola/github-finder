@@ -1,4 +1,4 @@
-// Clear users
+// Call/Search users from Github
 
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
@@ -13,7 +13,28 @@ class App extends Component {
     loading: false,
   };
 
+  // Removes original request
+
+  // async componentDidMount() {
+  //   this.setState({
+  //     loading: true,
+  //   });
+
+  //   const res = await axios.get(
+  //     `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+  //   );
+
+  //   this.setState({
+  //     users: res.data,
+  //     loading: false,
+  //   });
+  // }
+
+  // Search Github Users
   searchUsers = async (text) => {
+    // console.log( text );
+
+    // Spinner while searching
     this.setState({ loading: true });
 
     const res = await axios.get(
@@ -26,25 +47,13 @@ class App extends Component {
     });
   };
 
-  // Clear users from state
-  clearUsers = () => {
-    this.setState({
-      users: [],
-      loading: false,
-    });
-  };
-
   render() {
-    // destructuring
-    const { loading, users } = this.state;
-
     return (
       <div className='App'>
         <Navbar />
         <div className='container'>
-          {/* Add conditional prop to only show clear btn if users are loaded */}
-          <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClearBtn={users.length > 0 ? true : false} />
-          <Users loading={loading} users={users} />
+          <Search searchUsers={this.searchUsers} />
+          <Users loading={this.state.loading} users={this.state.users} />
         </div>
       </div>
     );
